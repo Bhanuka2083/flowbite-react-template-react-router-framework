@@ -1,5 +1,11 @@
 @import "tailwindcss";
-@plugin "flowbite-react/plugin/tailwindcss";
-@source "../.flowbite-react/class-list.json";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* 1. Explicitly force Tailwind v4 to scan the internal Docker node_modules folder */
+@source "../node_modules/flowbite-react/dist/**/*.js";
+@source "../node_modules/flowbite/dist/**/*.js";
+
+/* 2. Load the Flowbite plugin theme tokens */
+@plugin "flowbite/plugin";
+
+/* 3. Your dark mode configuration class variant from earlier */
+@variant dark (&:where(.dark, .dark *));
